@@ -23,7 +23,7 @@ class pt //base class
             putpixel(x1,y1,color);
           }
 };
-class dline: public pt //derived class
+class dline: public pt 
 {
     private: int x2,y2;
     public:
@@ -37,7 +37,7 @@ class dline: public pt //derived class
              x2=xx;
              y2=yy;
            }
-           void drawl() //DDA's Line
+           void drawl() 
            {
             int x,y,dx,dy,steps,i=0;
 	float xinc,yinc;
@@ -57,7 +57,7 @@ class dline: public pt //derived class
 	y=y1;
 	
 	pt::setco(x,y);
-	pt::draw();   //putpixel(x,y,10);
+	pt::draw();   
 	
 	for(i=1;i<=steps;i++)
 	{
@@ -65,26 +65,26 @@ class dline: public pt //derived class
 		y=y+yinc;
 		
 		pt::setco(x,y);
-		pt::draw();   //putpixel(x,y,10);
+		pt::draw();   
 				
 	}
 	
-      	}//funciton closed
+      	}
 	void cal(int x1,int y1,int x3,int y3)
 	{
 				
-		setline(x1,y1,x3,y1);   //side1
+		setline(x1,y1,x3,y1);   
 		drawl();
-		setline(x3,y1,x3,y3);   //side 2
+		setline(x3,y1,x3,y3);   
 		drawl();
 	
-		setline(x3,y3,x1,y3);   //side 3
+		setline(x3,y3,x1,y3);   
 		drawl();
-		setline(x1,y3,x1,y1);  //side 4
+		setline(x1,y3,x1,y1);  
 		drawl();
 		
 		
-		//rectangle 2
+		
 		
 		int xmid1,ymid1,xmid2,ymid2,xmid3,ymid3,xmid4,ymid4;
 		
@@ -94,26 +94,26 @@ class dline: public pt //derived class
 		xmid2 = (x3 + x3) / 2;
 		ymid2 = (y1 + y3) / 2;
 		
-		setline(xmid1,ymid1,xmid2,ymid2); //side 5
+		setline(xmid1,ymid1,xmid2,ymid2); 
 		drawl();
 		
 		xmid3 = (x1 + x3) / 2;
 		ymid3 = (y3 + y3) / 2;
 		
-		setline(xmid2,ymid2,xmid3,ymid3); //side 6
+		setline(xmid2,ymid2,xmid3,ymid3); 
 		drawl();
 		
 		xmid4 = (x1 + x1) / 2;
 		ymid4 = (y1 + y3) / 2;
 		
-		setline(xmid3,ymid3,xmid4,ymid4); //side 7
+		setline(xmid3,ymid3,xmid4,ymid4);
 		drawl();
 		
-		setline(xmid4,ymid4,xmid1,ymid1); //side 8
+		setline(xmid4,ymid4,xmid1,ymid1);
 		drawl();
 		
 		
-		///rectangle 3
+
 		int xf1,yf1, xf2,yf2, xf3,yf3, xf4,yf4;
 		
 		xf1 = (xmid1 + xmid4 ) / 2;
@@ -121,18 +121,18 @@ class dline: public pt //derived class
 		xf2 = (xmid1 + xmid2 ) / 2;
 		yf2 = (ymid1 + ymid2 ) / 2;
 		
-		setline(xf1, yf1, xf2, yf2);   //side 9
+		setline(xf1, yf1, xf2, yf2);   
 		drawl();
 		
 		xf3 = (xmid2 + xmid3 ) / 2;
 		yf3 = (ymid2 + ymid3 ) / 2;
-		setline(xf2, yf2, xf3, yf3);  //side 10
+		setline(xf2, yf2, xf3, yf3);  
 		drawl();
 		xf4 = (xmid3 + xmid4 ) / 2;
 		yf4 = (ymid3 + ymid4 ) / 2;		
-		setline(xf3, yf3, xf4, yf4);  //side 11
+		setline(xf3, yf3, xf4, yf4);  
 		drawl();
-		setline(xf4, yf4, xf1, yf1);  //side 12
+		setline(xf4, yf4, xf1, yf1);  
 		drawl(); 
 		
 		
